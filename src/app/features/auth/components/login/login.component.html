@@ -1,0 +1,48 @@
+<mat-card>
+  <div class="form__header">
+    <h3>Create Account</h3>
+
+    <a [routerLink]="['/login', { outlets: { auth: 'register' } }]"
+      ><button mat-stroked-button>Returning user?</button></a
+    >
+  </div>
+
+  <form class="form__main" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <app-input
+      formControlName="email"
+      placeholder="Email"
+      type="email"
+      fieldName="email"
+      [parentForm]="authForm"
+    ></app-input>
+
+    <app-input
+      formControlName="password"
+      placeholder="Password"
+      type="password"
+      fieldName="password"
+      [parentForm]="authForm"
+    ></app-input>
+
+    <app-input
+      formControlName="passwordConfirm"
+      placeholder="Confirm the Password"
+      type="password"
+      fieldName="passwordConfirm"
+      [parentForm]="authForm"
+    ></app-input>
+
+    <mat-error class="server-error">{{ errorMessage$ | async }}</mat-error>
+
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      [disabled]="authForm.invalid || !passwordDoesMatch"
+    >
+      Submit
+    </button>
+  </form>
+
+  <button class="form__forgot-pass" mat-button>Forgot password?</button>
+</mat-card>

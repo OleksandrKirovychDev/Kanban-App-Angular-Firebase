@@ -1,0 +1,13 @@
+<mat-form-field [color]="formField.valid ? 'primary' : 'warn'">
+  <input
+    matInput
+    required
+    [placeholder]="placeholder"
+    [value]="value"
+    [type]="type"
+    (input)="onChange($event)"
+  />
+  <mat-error>
+    aosdasd
+  </mat-error>
+</mat-form-field>

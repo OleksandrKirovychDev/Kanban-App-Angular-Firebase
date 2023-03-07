@@ -1,0 +1,64 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- SIDENAV -->
+
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a
+        *ngFor="let navLink of barLinks$ | async"
+        mat-list-item
+        [routerLink]="[navLink.routerLink]"
+        (click)="drawer.close()"
+        >{{ navLink.text }}</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- TOP TOOLBAR-->
+
+    <mat-toolbar>
+      <button
+        *ngIf="isHandset$ | async"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/">Kanban App</span>
+      <span class="fill-space"></span>
+      <div class="navbar-links" *ngIf="(isHandset$ | async) === false">
+        <a
+          *ngFor="let navLink of barLinks$ | async"
+          mat-button
+          [routerLink]="[navLink.routerLink]"
+          >{{ navLink.text }}</a
+        >
+      </div>
+
+      <!-- DROPDOWN MENU -->
+
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <a
+          mat-menu-item
+          *ngFor="let menuLink of menuLinks$ | async"
+          [href]="menuLink.routerLink"
+          ><i>💾</i><span>{{ menuLink.text }}</span></a
+        >
+      </mat-menu>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

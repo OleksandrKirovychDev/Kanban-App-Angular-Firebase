@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kanban-app-29c6c": {
+      "hosting": {
+        "Kanban-App": [
+          "kanban-app-29c6c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kanban-app-29c6c"
+  }
+}
