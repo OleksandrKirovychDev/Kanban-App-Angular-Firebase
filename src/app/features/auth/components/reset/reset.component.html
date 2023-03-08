@@ -1,1 +1,31 @@
-<p>reset works!</p>
+<mat-card>
+    <div class="form__header">
+      <h3>Reset Passwordt</h3>
+  
+      <a [routerLink]="['/login', { outlets: { auth: 'register' } }]"
+        ><button mat-stroked-button>Back</button></a
+      >
+    </div>
+  
+    <form class="form__main" [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+      <app-input
+        formControlName="email"
+        placeholder="Email"
+        type="email"
+        fieldName="email"
+        [parentForm]="resetForm"
+      ></app-input>
+
+      <mat-error class="server-error">{{ errorMessage$ | async }}</mat-error>
+  
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="resetForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-card>
+  

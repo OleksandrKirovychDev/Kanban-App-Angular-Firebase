@@ -1,19 +1,19 @@
 <mat-card>
   <div class="form__header">
-    <h3>Create Account</h3>
+    <h3>Log in to an exiting account</h3>
 
     <a [routerLink]="['/login', { outlets: { auth: 'register' } }]"
-      ><button mat-stroked-button>Returning user?</button></a
+      ><button mat-stroked-button>New User?</button></a
     >
   </div>
 
-  <form class="form__main" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+  <form class="form__main" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <app-input
       formControlName="email"
       placeholder="Email"
       type="email"
       fieldName="email"
-      [parentForm]="authForm"
+      [parentForm]="loginForm"
     ></app-input>
 
     <app-input
@@ -21,15 +21,7 @@
       placeholder="Password"
       type="password"
       fieldName="password"
-      [parentForm]="authForm"
-    ></app-input>
-
-    <app-input
-      formControlName="passwordConfirm"
-      placeholder="Confirm the Password"
-      type="password"
-      fieldName="passwordConfirm"
-      [parentForm]="authForm"
+      [parentForm]="loginForm"
     ></app-input>
 
     <mat-error class="server-error">{{ errorMessage$ | async }}</mat-error>
@@ -38,11 +30,13 @@
       mat-raised-button
       color="accent"
       type="submit"
-      [disabled]="authForm.invalid || !passwordDoesMatch"
+      [disabled]="loginForm.invalid"
     >
       Submit
     </button>
   </form>
 
-  <button class="form__forgot-pass" mat-button>Forgot password?</button>
+  <a [routerLink]="['/login', { outlets: { auth: 'reset' } }]">
+    <button class="form__forgot-pass" mat-button>Forgot password?</button>
+  </a>
 </mat-card>

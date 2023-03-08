@@ -43,3 +43,17 @@ img {
   max-width: 500px;
   display: flex;
 }
+
+::ng-deep app-register {
+  width: 100%;
+  align-items: stretch;
+  max-width: 500px;
+  display: flex;
+}
+
+::ng-deep app-reset {
+  width: 100%;
+  align-items: stretch;
+  max-width: 300px;
+  display: flex;
+}

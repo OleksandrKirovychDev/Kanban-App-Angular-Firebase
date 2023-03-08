@@ -8,18 +8,18 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {
-        path: 'register',
-        loadComponent: () =>
-          import('./components/register/register.component').then(
-            (c) => c.RegisterComponent
-          ),
-        outlet: 'auth',
-      },
-      {
         path: 'login',
         loadComponent: () =>
           import('./components/login/login.component').then(
             (c) => c.LoginComponent
+          ),
+        outlet: 'auth',
+      },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('./components/register/register.component').then(
+            (c) => c.RegisterComponent
           ),
         outlet: 'auth',
       },

@@ -42,6 +42,11 @@
           [routerLink]="[navLink.routerLink]"
           >{{ navLink.text }}</a
         >
+        <a
+          mat-button
+          [routerLink]="['login', { outlets: { auth: 'register' } }]"
+          >Login</a
+        >
       </div>
 
       <!-- DROPDOWN MENU -->

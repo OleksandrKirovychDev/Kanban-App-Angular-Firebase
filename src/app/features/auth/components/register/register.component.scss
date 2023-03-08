@@ -1,0 +1,38 @@
+mat-card {
+  max-width: 500px;
+  min-width: 150px;
+  width: 100%;
+  padding: 20px
+}
+
+app-input {
+  flex: 1;
+  width: 100%;
+}
+::ng-deep .mat-mdc-form-field {
+  width: 100%;
+  flex: 1;
+}
+
+.form__main {
+  flex: 1;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.server-error {
+  margin: 8px 0;
+}
+
+.form__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__forgot-pass {
+  margin-top: 10px;
+}
