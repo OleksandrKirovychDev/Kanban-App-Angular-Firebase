@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'kanban',
     loadChildren: () =>
-      import('./features/kanban/kanban.module').then((m) => m.KanbanModule),
+      import('./features/board/board.module').then((m) => m.BoardModule),
   },
 ];
 

@@ -5,14 +5,17 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
-import { KanbanRoutingModule } from './kanban-routing.module';
+import { BoardRoutingModule } from './board-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+import { BoardComponent } from './board.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BoardComponent
+  ],
   imports: [
     CommonModule,
-    KanbanRoutingModule,
+    BoardRoutingModule,
     SharedModule,
     ReactiveFormsModule,
     DragDropModule,
@@ -20,4 +23,4 @@ import { SharedModule } from '../../shared/shared.module';
     MatButtonToggleModule,
   ],
 })
-export class KanbanModule {}
+export class BoardModule {}
