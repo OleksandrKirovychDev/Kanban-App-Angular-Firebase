@@ -11,8 +11,8 @@ export const barLinks: navLinks[] = [
     routerLink: '/',
   },
   {
-    text: '🍱 Kanban',
-    routerLink: '/kanban',
+    text: '🍱 Board',
+    routerLink: '/board',
   },
   {
     text: '⚡ Users',

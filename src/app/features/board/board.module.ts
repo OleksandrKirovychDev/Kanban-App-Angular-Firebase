@@ -8,11 +8,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BoardRoutingModule } from './board-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { BoardComponent } from './board.component';
+import { KanbanComponent } from './pages/kanban/kanban.component';
 
 @NgModule({
-  declarations: [
-    BoardComponent
-  ],
+  declarations: [BoardComponent],
   imports: [
     CommonModule,
     BoardRoutingModule,
@@ -21,6 +20,7 @@ import { BoardComponent } from './board.component';
     DragDropModule,
     MatDialogModule,
     MatButtonToggleModule,
+    KanbanComponent,
   ],
 })
 export class BoardModule {}

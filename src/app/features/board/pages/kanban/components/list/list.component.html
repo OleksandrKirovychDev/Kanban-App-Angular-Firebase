@@ -1,0 +1,26 @@
+<mat-card class="outer-card">
+  <mat-card-header>
+    <ng-content></ng-content>
+    <mat-card-title>
+      {{ list.title }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ list.id }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <div
+    class="tasks"
+    cdkDropList
+    cdkDropListOrientation="vertical"
+    (cdkDropListDropped)="taskDrop($event)"
+  ></div>
+
+  <div
+    class="inner-card"
+    cdkDrag
+    *ngFor="let task of list.tasks; let i = index"
+  >
+    <mat-card [ngClass]="task.label">{{ task.description }}</mat-card>
+  </div>
+</mat-card>

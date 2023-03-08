@@ -8,7 +8,7 @@ const routes: Routes = [
       import('./features/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'kanban',
+    path: 'board',
     loadChildren: () =>
       import('./features/board/board.module').then((m) => m.BoardModule),
   },

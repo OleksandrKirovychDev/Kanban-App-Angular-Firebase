@@ -9,10 +9,11 @@ import { List, Task } from '../models/board.model';
 @Injectable({
   providedIn: 'root',
 })
-export class Boardervice {
+export class BoardService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
 
   public async createBoad(data: List) {
+    console.log(data);
     const user = await this.afAuth.currentUser;
     return this.db.collection('boards').add({
       ...data,
@@ -43,10 +44,10 @@ export class Boardervice {
       switchMap((user) => {
         if (user) {
           return this.db
-            .collection<List>('board', (ref) =>
-              ref.where('uid', '==', user.uid).orderBy('priority')
-            )
-            .valueChanges({ idField: 'id' });
+            .collection<List>('boards', (ref) => {
+              return ref.where('uid', '==', user.uid).orderBy('priority');
+            })
+            .valueChanges({ idField: 'id' })
         } else {
           return of([]);
         }
