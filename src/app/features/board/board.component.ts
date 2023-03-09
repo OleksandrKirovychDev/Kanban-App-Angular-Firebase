@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { List } from './models/board.model';
 import { BoardService } from './services/board.service';
 

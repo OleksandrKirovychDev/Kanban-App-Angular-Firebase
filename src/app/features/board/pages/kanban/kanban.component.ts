@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import {
@@ -22,6 +28,7 @@ import { SharedModule } from '../../../../shared/shared.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanbanComponent {
+  @Output() openDialog = new EventEmitter<null>();
   @Input() lists: List[];
 
   constructor(public boardService: BoardService, public dialog: MatDialog) {}
