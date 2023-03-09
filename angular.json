@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kanban-app",
+            "outputPath": "dist/Kanban-App/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -122,6 +122,66 @@
             "firebaseProject": "kanban-app-29c6c",
             "firebaseHostingSite": "kanban-app-29c6c"
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/Kanban-App/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "Kanban-App:build:development",
+              "serverTarget": "Kanban-App:server:development"
+            },
+            "production": {
+              "browserTarget": "Kanban-App:build:production",
+              "serverTarget": "Kanban-App:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Kanban-App:build:production",
+              "serverTarget": "Kanban-App:server:production"
+            },
+            "development": {
+              "browserTarget": "Kanban-App:build:development",
+              "serverTarget": "Kanban-App:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

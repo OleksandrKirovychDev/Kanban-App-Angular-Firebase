@@ -12,10 +12,17 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/board/board.module').then((m) => m.BoardModule),
   },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./features/users/users.module').then((m) => m.UsersModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

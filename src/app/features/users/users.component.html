@@ -1,0 +1,13 @@
+<h1>Users Page</h1>
+
+<mat-list-item role="list">
+  <h3 mat-subheader>Customers (Fake Data)</h3>
+  <mat-list-item
+    *ngFor="let cust of users$ | async"
+    [routerLink]="cust.id"
+    role="listitem"
+  >
+    <mat-icon>account_box</mat-icon>
+    <h3>{{ cust.name }}</h3>
+  </mat-list-item>
+</mat-list-item>
